@@ -6,7 +6,9 @@
         "radio": "*",
         "microphone": "*",
         "ds1307": "github:tinkertanker/pxt-realtimeclock-ds1307#cac7e9e8edf290e6f12cb3920f014c20d39feb58",
-        "SSD1306_OLED": "github:tinkertanker/pxt-oled-ssd1306#v2.0.13"
+        "SSD1306_OLED": "github:tinkertanker/pxt-oled-ssd1306#v2.0.13",
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.3",
+        "pxt-DHT11_DHT22": "github:alankrantas/pxt-dht11_dht22#v0.0.3"
     },
     "files": [
         "main.blocks",

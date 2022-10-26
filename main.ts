@@ -1,12 +1,22 @@
 input.onButtonPressed(Button.A, function () {
-    pins.digitalWritePin(DigitalPin.P9, 1)
+    pins.digitalWritePin(DigitalPin.P10, 1)
     Pompe = 1
     basic.pause(2000)
-    pins.digitalWritePin(DigitalPin.P9, 0)
+    pins.digitalWritePin(DigitalPin.P10, 0)
     Pompe = 0
 })
+input.onButtonPressed(Button.B, function () {
+    pins.digitalWritePin(DigitalPin.P9, 1)
+    strip.setBrightness(255)
+    strip.showColor(neopixel.colors(NeoPixelColors.Violet))
+    Lumieres = 1
+    basic.pause(2000)
+    strip.showColor(neopixel.colors(NeoPixelColors.Black))
+    pins.digitalWritePin(DigitalPin.P9, 0)
+    Lumieres = 0
+})
 function Affichage () {
-    OLED.writeStringNewLine("" + (RTC_DS1307.getTime(RTC_DS1307.TimeType.DAY) - 2) + "/" + RTC_DS1307.getTime(RTC_DS1307.TimeType.MONTH) + "/" + (RTC_DS1307.getTime(RTC_DS1307.TimeType.YEAR) - 32) + "  " + (RTC_DS1307.getTime(RTC_DS1307.TimeType.HOUR) - 6) + ":" + RTC_DS1307.getTime(RTC_DS1307.TimeType.MINUTE) + ":" + RTC_DS1307.getTime(RTC_DS1307.TimeType.SECOND) + " ")
+    OLED.writeStringNewLine("" + (RTC_DS1307.getTime(RTC_DS1307.TimeType.DAY) - 0) + "/" + RTC_DS1307.getTime(RTC_DS1307.TimeType.MONTH) + "/" + (RTC_DS1307.getTime(RTC_DS1307.TimeType.YEAR) - 0) + "  " + (RTC_DS1307.getTime(RTC_DS1307.TimeType.HOUR) - 0) + ":" + RTC_DS1307.getTime(RTC_DS1307.TimeType.MINUTE) + ":" + RTC_DS1307.getTime(RTC_DS1307.TimeType.SECOND) + " ")
     OLED.writeStringNewLine("Temperature  : " + Temp + "  ")
     OLED.writeStringNewLine("Humidite Sol : " + Hum_Sol + "  ")
     OLED.writeStringNewLine("Humidite Air : " + Hum_Air + "  ")
@@ -33,14 +43,6 @@ input.onButtonPressed(Button.AB, function () {
     basic.pause(2000)
     pins.servoWritePin(AnalogPin.P4, 0)
     Porte = 0
-})
-input.onButtonPressed(Button.B, function () {
-    strip.setBrightness(255)
-    strip.showColor(neopixel.colors(NeoPixelColors.Violet))
-    Lumieres = 1
-    basic.pause(2000)
-    strip.showColor(neopixel.colors(NeoPixelColors.Black))
-    Lumieres = 0
 })
 let Porte = 0
 let Lumieres = 0
